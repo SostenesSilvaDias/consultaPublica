@@ -4,7 +4,6 @@ import br.com.consultapublica.model.Comissoes;
 import br.com.consultapublica.model.Deputado;
 import lombok.*;
 import org.springframework.hateoas.Link;
-import org.springframework.hateoas.server.mvc.ControllerLinkBuilder;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 
 import java.util.List;
@@ -31,7 +30,7 @@ public class DeputadoDto {
     private Comissoes comissoes;
     private Link link;
 
-    public DeputadoDto(Deputado deputado) {
+    private DeputadoDto(Deputado deputado) {
         this.ideCadastro = deputado.getIdeCadastro();
         this.condicao = deputado.getCondicao();
         this.nome = deputado.getNome();

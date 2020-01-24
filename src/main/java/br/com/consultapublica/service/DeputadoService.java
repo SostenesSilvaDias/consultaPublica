@@ -19,15 +19,5 @@ public class DeputadoService {
         ResponseEntity<String> responseEntity = restTemplate.getForEntity("https://www.camara.leg.br/SitCamaraWS/Deputados.asmx/ObterDeputados", String.class);
         XmlMapper xmlMapper = new XmlMapper();
         return xmlMapper.readValue(Objects.requireNonNull(responseEntity.getBody()), new TypeReference<List<Deputado>>() {});
-
-        /*ObjectMapper jsonMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        String json = jsonMapper.writeValueAsString(deputados);
-        DeputadoRoot myObjects = jsonMapper.readValue(json, DeputadoRoot.class);
-
-        Deputado list = xmlMapper.readValue(responseEntity.getBody(), Deputado.class);
-        JsonNode node = xmlMapper.readTree(responseEntity.getBody());
-        List<DeputadoRoot> Deputados = Arrays.asList(jsonMapper.readValue(json, DeputadoRoot[].class));
-        List<Deputado> myObjects = jsonMapper.readValue(json, jsonMapper.getTypeFactory().constructCollectionType(List.class, Deputado.class));*/
     }
-
 }
